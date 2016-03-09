@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe 'logwatch', :type => :class do
+  # use default params but get it defined
+  let (:params) {{}}
 
   it { should contain_class('logwatch::params') }
   it { should contain_class('logwatch::install').that_comes_before('logwatch::config') }
@@ -20,5 +22,10 @@ describe 'logwatch', :type => :class do
       'group'  => 'root',
       'mode'   => '0644',
     })
+  end
+
+  it 'should not have a config file if ensure => absent' do
+    params.merge!({ :package_ensure => 'absent' })
+    should_not contain_file('logwatch.conf')
   end
 end
