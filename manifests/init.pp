@@ -29,7 +29,6 @@ class logwatch (
   validate_string($format)
   validate_array($mail_to)
   validate_string($mail_from)
-  validate_re($range, ['^All$', '^Today$', '^Yesterday$'])
   validate_re($detail, ['^Low$', '^Med$', '^High$'])
   validate_array($service)
   validate_string($package_ensure)
