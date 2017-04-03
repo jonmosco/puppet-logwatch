@@ -4,3 +4,5 @@ spec/fixtures/
 Gemfile.lock
 .vagrant
 log/
+.ruby-version
+.ruby-gemset
