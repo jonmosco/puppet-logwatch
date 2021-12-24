@@ -2,7 +2,7 @@
 #
 class logwatch::params {
 
-  $output         = 'unformatted',
+  $output         = 'unformatted'
   $format         = 'text'
   $mail_to        = [ 'root' ]
   $mail_from      = 'Logwatch'

@@ -22,9 +22,9 @@ class logwatch (
   String   $package_ensure = $logwatch::params::package_ensure,
   String   $package_name   = $logwatch::params::package_name,
   Optional $ignore_conf    = $logwatch::params::ignore_conf,
-  Variant[ Regexp, Enum[ '^All$', '^Today$', '^Yesterday$' ] ]
+  Variant[ String, Enum[ 'All', 'Today', 'Yesterday' ] ]
            $range          = $logwatch::params::range,
-  Variant[ Regexp, Enum[ '^Low$', '^Med$', '^High$' ] ]
+  Variant[ String, Enum[ 'Low', 'Med', 'High' ] ]
            $detail         = $logwatch::params::detail,
 ) inherits logwatch::params {
 
