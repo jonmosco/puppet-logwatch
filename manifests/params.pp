@@ -2,14 +2,8 @@
 #
 class logwatch::params {
 
-  $output         = $::osfamily ? {
-    'RedHat' => 'unformatted',
-    default  => 'stdout',
-  }
-  $format         = $::osfamily ? {
-    'RedHat' => 'text',
-    default  => 'test',
-  }
+  $output         = 'unformatted'
+  $format         = 'text'
   $mail_to        = [ 'root' ]
   $mail_from      = 'Logwatch'
   $range          = 'Yesterday'

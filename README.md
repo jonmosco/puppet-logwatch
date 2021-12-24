@@ -28,9 +28,11 @@ on Linux based systems.
 
 **NOTE: You must have a proper MTA installed and configured to send mail externally.**
 
-### Stdlib
+By default, logwatch will monitor all services it knows how to.
 
-This module requires puppetlabs-stdlib >= 3.2.0
+### Concat
+
+This module requires puppetlabs-concat >= 2.2.1
 
 ### What logwatch affects
 
@@ -84,15 +86,16 @@ Add a regex to `ignore.conf` to suppress that output from the logwatch report
 ##### `logwatch`
 
 ```
-output
-format
-mail_to
-mail_from
-range
-detail
-service
-package_ensure
-package_name
+ $output - Acceptable values include unformatted, stdout - defaults to 'unformatted'
+ $format - Acceptable values include html or text - defaults to 'text'
+ $mail_to - Array of email addresses to send to
+ $mail_from - email address for logwatch 'from' emails
+ $range - Requires a regex op ^All$, ^Today$, or ^Yesterday$.
+ $detail - Requires a regex of ^Low$, ^Med$, or ^$High'.
+ $service - Array of services to watch, defaults to 'All'
+ $package_ensure - ensure the package is installed or latest or present
+ $package_name - the name of the pacakge to install, logwatch typically is sufficient
+
 ```
 
 ##### `logwatch::ignore`
@@ -103,13 +106,13 @@ regex
 
 ## Limitations
 
-This module has been built on and tested against Puppet 3.
+This module has been built on and tested against Puppet 6.
 
 The module has been tested on:
 
-* RedHat Enterprise Linux 6/7
-* CentOS 6/7
-* Ubuntu 12.04/14.04
+* RedHat Enterprise Linux 7/8 (including Rocky Linux)
+* CentOS 7/8
+* Ubuntu 18.04/20.04
 
 ## Development
 
